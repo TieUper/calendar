@@ -7,6 +7,8 @@ import com.andexert.calendarlistview.library.DatePickerController;
 import com.andexert.calendarlistview.library.DayPickerView;
 import com.andexert.calendarlistview.library.SimpleMonthAdapter;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity implements DatePickerController {
 
     private DayPickerView mCalendar;
@@ -18,6 +20,10 @@ public class MainActivity extends AppCompatActivity implements DatePickerControl
 
         mCalendar = (DayPickerView) findViewById(R.id.pickerView);
         mCalendar.setController(this);
+
+        List<SimpleMonthAdapter.CalendarDay> date = DateUtils.get7date();
+
+        System.out.println(date);
     }
 
     @Override

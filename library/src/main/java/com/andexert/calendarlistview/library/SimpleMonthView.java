@@ -223,7 +223,7 @@ class SimpleMonthView extends View
 		while (day <= mNumCells) {
 			int x = paddingDay * (1 + dayOffset * 2) + mPadding;
             for(SimpleMonthAdapter.CalendarDay calendarDay : list) {
-                if(calendarDay.month == mMonth && calendarDay.day == day && calendarDay.year == mYear) {
+                if(calendarDay.month == mMonth && calendarDay.day == day && calendarDay.year == mYear && isEnableClick(calendarDay)) {
                     if (mDrawRect)
                     {
                         RectF rectF = new RectF(x - DAY_SELECTED_CIRCLE_SIZE, (y  - MINI_DAY_NUMBER_TEXT_SIZE / 3) - DAY_SELECTED_CIRCLE_SIZE, x + DAY_SELECTED_CIRCLE_SIZE, (y  - MINI_DAY_NUMBER_TEXT_SIZE / 3) + DAY_SELECTED_CIRCLE_SIZE);
@@ -301,6 +301,13 @@ class SimpleMonthView extends View
 			day++;
 		}
 	}
+
+    //判断是否可以选中
+    public boolean isEnableClick(SimpleMonthAdapter.CalendarDay calendarDay) {
+        if(com.andexert.calendarlistview.library.DateUtils.get7date().contains(calendarDay))
+            return true;
+        return false;
+    }
 
 	public SimpleMonthAdapter.CalendarDay getDayFromLocation(float x, float y) {
 		int padding = mPadding;

@@ -21,6 +21,8 @@ public class MainActivity extends Activity implements com.andexert.calendarlistv
 
         dayPickerView = (DayPickerView) findViewById(R.id.pickerView);
         dayPickerView.setController(this);
+
+
     }
 
 
